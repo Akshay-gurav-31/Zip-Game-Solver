@@ -1,86 +1,135 @@
 # Zip Creator — Twin Box Precision
 
-A fast, interactive web-based creator and solver for **LinkedIn Zip** puzzles. Place numbers on a grid, optionally add walls, and instantly compute all valid Hamiltonian paths that connect the numbers in sequential order while filling every cell exactly once.
-
-## Overview
-
-Zip Creator allows you to:
-- Create custom Zip puzzles of any size from 3×3 to 9×9.
-- Place numbered waypoints (1, 2, 3, …) that must be visited in order.
-- Add horizontal or vertical walls to increase difficulty.
-- Solve the puzzle and explore all valid solutions (up to 50 shown).
-- Visualize each solution with smooth animated path tracing and timing.
-
-Perfect for puzzle enthusiasts, developers learning backtracking algorithms, or anyone who enjoys LinkedIn’s daily Zip challenge.
-
-## Features
-
-- Real-time grid editor (numbers + walls)
-- Dual edit modes: Numbers and Walls
-- High-performance DFS solver with isolation pruning and heuristic ordering
-- Multiple solution browser with navigation
-- Canvas-based path animation with dynamic coloring
-- Dark / Light theme with glassmorphic UI
-- Fully responsive (desktop + mobile)
-- Single-file HTML – no build step required
-
-## How It Works
-
-1. Choose grid size (3–9).
-2. Tap cells to place numbers sequentially (1, 2, 3, …).
-3. Switch to Wall mode and click near edges to place barriers.
-4. Click **Solve All** to find every valid path.
-5. Browse solutions and watch the animated trace.
-
-The solver guarantees that every returned path:
-- Visits every cell exactly once.
-- Passes through the numbers in ascending order.
-- Never crosses a wall.
-
-## Algorithm
-
-The core solver implements a **depth-first search** for Hamiltonian paths on a grid graph with the following constraints and optimizations:
-
-- **Graph representation**: 4-connected grid with dynamic edge removal for walls.
-- **Backtracking** with visited-set pruning.
-- **Number-order enforcement** during traversal.
-- **Isolation detection** (BFS on remaining cells) – instantly rejects branches that disconnect the unvisited area.
-- **Manhattan-distance heuristic** to prioritize moves toward the next numbered cell.
-- Early termination after 50 solutions for UI performance.
-
-Full implementation is contained in the `ZipSolver` class (see `script` section of `index.html`).
-
-## Tech Stack
-
-- HTML5 + Tailwind CSS (via CDN)
-- React 18 (UMD build)
-- Vanilla JavaScript + Canvas 2D
-- Babel standalone for JSX
-- Font Awesome icons
-
-No external dependencies or build tools required.
-
-## Installation & Usage
-
-1. Download or clone the repository.
-2. Open `index.html` in any modern browser (Chrome, Edge, Firefox, Safari).
-3. No installation or server required – works completely offline.
-
-**Hosting (optional)**  
-You can host it instantly on GitHub Pages, Vercel, or Netlify by uploading the single `index.html` file.
-
-## Developer
-
-**Akshay Gurav**  
-Software Engineer & Puzzle Enthusiast
-
-- LinkedIn: [linkedin.com/in/akshay---gurav](https://www.linkedin.com/in/akshay---gurav/)
-- GitHub: [github.com/Akshay-gurav-31](https://github.com/Akshay-gurav-31)
-
-## License
-
-MIT License – feel free to use, modify, and distribute.
+A fast, interactive web-based creator and solver for LinkedIn Zip puzzles. It allows users to design custom grids, add constraints, and instantly compute all valid Hamiltonian paths that visit every cell exactly once while following numbered waypoints.
 
 ---
 
-Made with precision for puzzle lovers.
+## Overview
+
+Zip Creator enables you to:
+
+- Create custom puzzles from 3×3 to 9×9 grids  
+- Place numbered waypoints (1, 2, 3, …) in sequence  
+- Add horizontal and vertical walls as constraints  
+- Solve puzzles and explore multiple valid solutions  
+- Visualize paths with smooth animated rendering  
+
+This project is useful for puzzle enthusiasts and developers exploring constraint-based problem solving.
+
+---
+
+## Quick Access
+
+<p align="center">
+  <strong>Scan to try Zip Creator instantly</strong><br/><br/>
+  <img src="https://raw.githubusercontent.com/Akshay-gurav-31/Zip-Game-Solver/main/scan-me.png" width="260" />
+</p>
+
+---
+
+## Features
+
+- Interactive grid editor (numbers and walls)  
+- Dual edit modes for precise control  
+- High-performance DFS-based solver  
+- Multiple solution viewer with navigation  
+- Canvas-based animated path visualization  
+- Dark and light theme support  
+- Fully responsive (desktop and mobile)  
+- Runs completely offline  
+
+---
+
+## Architecture
+
+The entire application is implemented inside a single `index.html` file.
+
+- No build tools  
+- No backend  
+- No installation required  
+
+Everything — UI, logic, and solver — runs directly in the browser.
+
+---
+
+## Tech Stack
+
+- HTML5  
+- CSS3 (custom styling + theming)  
+- JavaScript (ES6+)  
+- React 18 (UMD via CDN)  
+- Tailwind CSS (CDN)  
+- Babel Standalone (for JSX transpilation)  
+- Canvas API (for path rendering)  
+
+---
+
+## How It Works
+
+1. Select a grid size (3–9)  
+2. Place numbers sequentially on the grid  
+3. Add walls to restrict movement  
+4. Click Solve All  
+5. Explore and animate solutions  
+
+Each solution:
+
+- Visits every cell exactly once  
+- Follows numbered cells in order  
+- Respects all wall constraints  
+
+---
+
+## Algorithm
+
+The solver is based on Depth-First Search (DFS) with backtracking and optimizations:
+
+- Grid modeled as a 4-directional graph  
+- Visited-state pruning  
+- Number-order enforcement  
+- Isolation detection using BFS  
+- Manhattan-distance heuristic for move ordering  
+- Early stopping after 50 solutions  
+
+These optimizations ensure fast execution even for complex grids.
+
+---
+
+## Purpose
+
+This project was built to explore how rule-based systems and algorithms solve constrained problems.
+
+The goal is not to bypass puzzles, but to:
+
+- Understand algorithmic thinking  
+- Analyze solution strategies  
+- Experiment with optimization techniques  
+
+---
+
+## Installation & Usage
+
+1. Clone or download the repository  
+2. Open `index.html` in any modern browser  
+3. Start creating and solving puzzles  
+
+No setup required.
+
+---
+
+## Developer
+
+Akshay Gurav  
+
+- LinkedIn: https://www.linkedin.com/in/akshay---gurav/  
+- GitHub: https://github.com/Akshay-gurav-31  
+
+---
+
+## License
+
+MIT License — free to use, modify, and distribute.
+
+---
+
+Built for precision and problem-solving.
